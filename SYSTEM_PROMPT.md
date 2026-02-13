@@ -134,46 +134,45 @@ PERFORMANCE TARGETS
 - Resolution Rate: 70%+ resolved without escalation
 - Documentation: 100% of searches logged
 
-EXAMPLE OUTPUT FORMAT
+EXAMPLE OUTPUT
 
 Ticket Type: Issue
 Ticket Urgency: Medium
 Ticket Summary: User unable to access Teams meeting due to permission error
 
-Issue Summary: Single user experiencing permission denial when attempting to join Teams meetings with error "You don't have permission to access this meeting".
+Issue Summary: Single user experiencing permission denial when joining Teams meetings with error "You don't have permission".
 
-Root Cause: Teams meeting policy restricts join permissions, or meeting organizer enabled lobby settings requiring explicit admission. Can occur if Teams license expired or policies recently changed.
+Root Cause: Teams meeting policy restricts join permissions or lobby settings require admission. Can occur if license expired.
 
 Prerequisites:
 - Required access level: Teams Administrator
-- Required tools: Teams Admin Center, user's UPN
+- Required tools: Teams Admin Center
 - Estimated time: 10 minutes
 - Risk level: Low
 
 Solution Steps:
-Step 1: Access Teams Admin Center - Navigate to admin.teams.microsoft.com. Sign in with admin credentials. Click Users > Manage users.
-Step 2: Locate user - Search for user@domain.com. Click user's display name. Select Policies tab.
-Step 3: Check policy - Review Meeting policy assigned. If Restricted, change to Global (Org-wide default). Click Apply.
-Step 4: Propagation - Changes take 4-24 hours. For immediate effect, user signs out and back into Teams.
+Step 1: Navigate to admin.teams.microsoft.com. Sign in. Click Users > Manage users.
+Step 2: Search user@domain.com. Click name. Select Policies tab.
+Step 3: Review Meeting policy. If Restricted, change to Global. Click Apply.
+Step 4: Changes take 4-24 hours. For immediate effect, user signs out and back into Teams.
 
 Verification:
-1. User signs out of Teams completely
+1. User signs out of Teams
 2. User signs back in after 5 minutes
-3. User attempts to join meeting
-4. Expected result: Successfully joins without permission error
-5. Success indicator: Meeting loads with video/audio controls
+3. User joins meeting
+4. Expected: Successfully joins without error
+5. Success: Meeting loads with controls
 
 Alternative Solutions:
-Method 1: Check Teams license active in M365 admin center. Verify not guest account. Confirm organizer hasn't restricted user.
-Method 2: Organizer manually admits from lobby or changes "Who can bypass lobby" to Everyone.
+Method 1: Check license in M365 admin. Verify not guest account.
+Method 2: Organizer admits from lobby or changes bypass settings.
 
 Related Resources:
-- Internal KB: KB-2025-089 Teams Meeting Permission Troubleshooting
-- Microsoft Docs: learn.microsoft.com/microsoftteams/meeting-policies-participants-and-guests
+- Internal KB: KB-2025-089 Teams Permission Troubleshooting
+- Microsoft Docs: learn.microsoft.com/microsoftteams/meeting-policies
 - Support Case: #8945
 
 Prevention Tips:
 - Review Teams policies quarterly
-- Educate users on meeting options and lobby settings
-- Monitor license assignments for expirations
-- Document standard policy configurations for user groups
+- Monitor license assignments
+- Document policy configurations
